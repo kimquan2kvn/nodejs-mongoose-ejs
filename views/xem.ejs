@@ -1,0 +1,33 @@
+<% include template/header %>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-3">Xem dữ liệu</h1>
+            <p class="lead">Trong MongoDB</p>
+            <hr class="my-2">
+        </div>
+        <table class="table table-striped table-hover table-bordered table-inverse">
+            <thead class="thead-inverse">
+                <tr>
+                    <th> Tên</th>
+                    <th> Tuổi</th>
+                    <th> Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach(function(motphantu){ %>
+                    <tr>
+                        <td scope="row"><%= motphantu.ten %></td>
+                        <td><%= motphantu.tuoi %></td>
+                        <td><a href="/sua/<%=motphantu._id%>"><i class="fas fa-edit"></i>
+                        </a> / 
+                        <a onclick=" return xoahaykhong('Bạn có chắc chắn xóa không');" href="/xoa/<%= motphantu._id %>">
+                        <i class="fas fa-trash-alt"></i></a></td>
+                    </tr>
+
+                    <% }) %>
+                </tbody>
+        </table>
+    </div>
+    <script src="https://kit.fontawesome.com/1b254bd8d7.js" crossorigin="anonymous"></script>
+</body>
+</html>
